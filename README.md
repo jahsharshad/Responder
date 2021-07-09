@@ -11,6 +11,44 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
+	<style>
+		@media only screen and (max-device-width: 480px) {
+		    div.large-menu {
+			display: none;
+		    }
+		}
+
+		@media only screen and (min-device-width: 481px) {
+		    div.large-menu {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-justify-content: -moz-flex-end;
+				-webkit-justify-content: -webkit-flex-end;
+				-ms-justify-content: -ms-flex-end;
+				justify-content: flex-end;
+				-moz-flex-grow: 1;
+				-webkit-flex-grow: 1;
+				-ms-flex-grow: 1;
+				flex-grow: 1;
+				height: inherit;
+				line-height: inherit;
+		    }
+
+		    div.large-menu a {
+			margin-right: 25px;
+		    }
+
+		    div.small-menu {
+			display: none;
+		    }
+		}
+
+		div.input {
+		    display: inline-block;
+		}
+	</style>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -18,10 +56,18 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Responder</strong> <span>For Seniors</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
+						<a href="/" class="logo"><strong>Responder</strong> <span>For Seniors</span></a>
+						<div class="large-menu">
+							<a href="/">Home</a>
+							<a href="services">Services</a>
+							<a href="education">Education</a>
+							<a href="about-us">About Us</a>
+						</div>
+						<div class="small-menu">
+							<nav>
+								<a href="#menu">Menu</a>
+							</nav>
+						</div>
 					</header>
 
 				<!-- Menu -->
