@@ -12,6 +12,9 @@
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<style>
+		a {
+			border-bottom: none !important;
+		}
 		@media only screen and (max-device-width: 480px) {
 		    div.large-menu {
 			display: none;
@@ -38,7 +41,6 @@
 
 		    div.large-menu a {
 			margin-right: 25px;
-			border-bottom: none;
 		    }
 
 		    div.small-menu {
