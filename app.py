@@ -17,22 +17,17 @@ def index():
         return render_template('index.html')
 
 
-@app.route('/about', methods=['POST', 'GET'])
-def about():
-    return render_template('about.html')
+@app.route('/about-us', methods=['POST', 'GET'])
+def about_us():
+    return render_template('elements.html')
 
 
-@app.route('/maps', methods=['POST', 'GET'])
-def maps():
+@app.route('/services', methods=['POST', 'GET'])
+def services():
 
     return render_template('landing.html')
 
 
-@app.route('/elements', methods=['POST', 'GET'])
-def elements():
-    return render_template('elements.html')
-
-
-@app.route('/generic', methods=['POST', 'GET'])
-def generic():
+@app.route('/education', methods=['POST', 'GET'])
+def education():
     return render_template('generic.html')
