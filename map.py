@@ -16,7 +16,7 @@ fig = px.choropleth_mapbox(df, geojson=counties, locations='fips', color='unemp'
                            mapbox_style="carto-positron",
                            zoom=3, center = {"lat": 37.0902, "lon": -95.7129},
                            opacity=0.5,
-                           labels={'unemp':'unemployment rate'},
+                           labels={'ERS':'Emergency Response Times'},
                           )
 
 fig.update_traces(marker_line_width=0, marker_opacity=0.8)
@@ -49,4 +49,4 @@ fig.add_scattermapbox(lat = [37.548], lon = [-121.988], name = '', mode='markers
 
 # fig.show()
 
-fig.write_html("C:/Users/jahsh/Documents/jahsh/Programming/ExamplePlotlyGraph/Templates/Chart1.html")
+# fig.write_html("C:/Users/jahsh/Documents/jahsh/Programming/ExamplePlotlyGraph/Templates/Chart1.html")
