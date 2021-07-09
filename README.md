@@ -82,8 +82,6 @@ div.input {
 					</nav>
 
                 <!-- Main -->
-                    {% block body %}{% endblock %}
-
 <!--				&lt;!&ndash; Contact &ndash;&gt;-->
 <!--					<section id="contact">-->
 <!--						<div class="inner">-->
