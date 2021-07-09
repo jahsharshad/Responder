@@ -94,12 +94,14 @@
 							</header>
 							<div class="content">
 								<ul class="actions">
-				    				<form action="/" method="POST">
+								<form action="/" method="POST">
 									<div class="field half">
 									<label for="address">Type in your address to locate hospitals near you</label>
-									<input type="text" name="address" id="address" />
-				        			<input type="submit" value="Let's Go!" />
-									</form>
+									<div class="input"><input size="50" type="text" name="address" id="address" /></div>
+									<div class="input"><input type="submit" value="Let's Go!" /></div>
+									</div>
+									<div>{{ error_msg }}</div>
+								</form>
 								</ul>
 							</div>
 						</div>
