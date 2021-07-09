@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Responder</title>
@@ -141,7 +140,6 @@ div.input {
 						<h3><a href="about-us" class="link">About Us</a></h3>
 						<p>Learn more about who we are</p>
 					</header>
-				</article>
 				</article>
 			</section>
 
