@@ -38,9 +38,8 @@ def about_us():
 @app.route('/services', methods=['POST', 'GET'])
 def services():
     address = request.args.get('address')
-    time = time_estimate(address)
-    print(time)
-    return render_template('landing.html', time=time)
+    time, destination = time_estimate(address)
+    return render_template('landing.html', time=time, destination=destination)
 
 
 @app.route('/education', methods=['POST', 'GET'])
