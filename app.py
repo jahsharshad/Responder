@@ -6,14 +6,13 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        task_content = request.form['name']
-        print(task_content)
-        print("You posted")
+        address = request.form['address']
 
+        print(address)
         try:
-            return redirect('/')
+            return redirect(url_for('maps', address=address))
         except:
-            return "There was an issue adding your task"
+            return "Lol"
     else:
         return render_template('index.html')
 
@@ -25,6 +24,7 @@ def about():
 
 @app.route('/maps', methods=['POST', 'GET'])
 def maps():
+
     return render_template('landing.html')
 
 
