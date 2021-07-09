@@ -10,4 +10,6 @@ directions_result = gmaps.directions(address, "fire station near "+address,
                                      departure_time=now)
 
 time = directions_result[0]['legs'][0]['duration']['text']
+destination_address = directions_result[0]['legs'][0]['end_address']
 print(time)
+print(destination_address)
