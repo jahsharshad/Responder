@@ -38,6 +38,7 @@
 
 		    div.large-menu a {
 			margin-right: 25px;
+			border-bottom: none;
 		    }
 
 		    div.small-menu {
