@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#Responder for Seniors
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,4 +166,3 @@ div.input {
 
 	</body>
 </html>
->>>>>>> 85812878c06b73ea89dec209ebcc20880a266203
