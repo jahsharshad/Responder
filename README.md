@@ -1,1 +1,2 @@
 # EmergencyResponder
+https://www.wix.com/logo/maker/esh/zoe-editor?tags=dynamic%2Cmodern%2Cfresh%2Cformal&logoId=5c369aed-cd37-4bbf-a675-6cb640934ba1&logoPurpose=website&referralAdditionalInfo=arenaSplitPage
