@@ -139,8 +139,8 @@
 										<img src="images/education.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="education.html" class="link">Education</a></h3>
-										<p>Learn more about staying safe</p>
+										<h3><a href="education.html" class="link">How to Help</a></h3>
+										<p>Learn more about keeping seniors safe</p>
 									</header>
 								</article>
 								<article>
