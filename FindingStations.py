@@ -80,7 +80,7 @@ def hospitalCalc(county, state):
             # Append value corresponding to the
             # 'name' key at the ith index of y
             hospitalName = y[i]['name']
-            if ('Pet' not in hospitalName) and ('Vet' not in hospitalName):
+            if ('Pet' not in hospitalName) and ('Vet' not in hospitalName) and ('Animal' not in hospitalName):
                 if ('Cat' not in hospitalName) and ('Dog' not in hospitalName):
                     county_hospital.append((y[i]['name']))
 
