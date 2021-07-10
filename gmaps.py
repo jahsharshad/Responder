@@ -149,6 +149,7 @@ def generateCountyMap(address, stations, hospitals):
             lat = geocode_result[0]['geometry']['location']['lat']
             long = geocode_result[0]['geometry']['location']['lng']
             locations[emergency_locations[i]] = [lat, long]
+            #print(locations[emergency_locations[i]])
         except IndexError:
             print("Address was incorrect...")
         except Exception as e:
