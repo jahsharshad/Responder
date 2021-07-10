@@ -12,7 +12,8 @@
 	<!-- One -->
 		<section id="one">
 			<div class="inner"
-				 style="background-image: url('static/images/response_time.jpg') no-repeat">
+				 style="background-image: linear-gradient(rgba(42,48,74,0.5), rgba(42,48,74,0.5)), url('static/images/response_time.jpg');
+				 background-repeat:no-repeat; background-size:100%;">
 				{% if not go_home %}
 					<header class="major">
 						<h2>Your emergency response time is {{ time }}.</h2>
@@ -24,7 +25,6 @@
 					</header>
 				{% endif %}
 			</div>
-<!--				</article>-->
 		</section>
 
 	<!-- Two -->
@@ -60,6 +60,9 @@
 															  value="Let's Go!" /></div>
 								</div>
 								<div>{{ error_msg }}</div>
+								<div style="padding-top: 10px">
+									<p>You can also <a style="border-bottom: 2px dotted;" href="/">use your current location</a></p>
+								</div>
 							</form>
 						</header>
 						{% if not go_home %}
