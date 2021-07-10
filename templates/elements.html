@@ -1,94 +1,11 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>About Us | Responder</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
-		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
-	</head>
-		<style>
-		a {
-			border-bottom: none !important;
-		}
-		@media only screen and (max-device-width: 480px) {
-		    div.large-menu {
-			display: none;
-		    }
-		}
-
-		@media only screen and (min-device-width: 481px) {
-		    div.large-menu {
-				display: -moz-flex;
-				display: -webkit-flex;
-				display: -ms-flex;
-				display: flex;
-				-moz-justify-content: -moz-flex-end;
-				-webkit-justify-content: -webkit-flex-end;
-				-ms-justify-content: -ms-flex-end;
-				justify-content: flex-end;
-				-moz-flex-grow: 1;
-				-webkit-flex-grow: 1;
-				-ms-flex-grow: 1;
-				flex-grow: 1;
-				height: inherit;
-				line-height: inherit;
-		    }
-
-		    div.large-menu a {
-			margin-right: 25px;
-		    }
-
-		    div.small-menu {
-			display: none;
-		    }
-		}
-
-		div.input {
-		    display: inline-block;
-		}
-	</style>
-	<body class="is-preload">
-
-				<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Responder</strong> <span>For Seniors</span></a>
-						<div class="large-menu">
-							<a style="border-bottom: none;" href="/">Home</a>
-							<a style="border-bottom: none;"  style="border-bottom: none;"  href="services">Services</a>
-							<a style="border-bottom: none;"  href="education">Education</a>
-							<a style="border-bottom: none;"  href="about-us">About Us</a>
-						</div>
-						<div class="small-menu">
-							<nav>
-								<a href="#menu">Menu</a>
-							</nav>
-						</div>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+{% extends 'base.html' %}
 
 
+{% block head %}
+<title>About Us | Responder</title>
+{% endblock %}
+
+{% block body %}
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
 					<section id="banner" class="style2">
@@ -193,29 +110,4 @@
 									</div>
 								</section>
 
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="">HTML5</a></li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="js/jquery.min.js"></script>
-			<script src="js/jquery.scrolly.min.js"></script>
-			<script src="js/jquery.scrollex.min.js"></script>
-			<script src="js/browser.min.js"></script>
-			<script src="js/breakpoints.min.js"></script>
-			<script src="js/util.js"></script>
-			<script src="js/main.js"></script>
-
-	</body>
-</html>
+{% endblock %}
