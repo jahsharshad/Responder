@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-from gmaps import time_estimate
+from gmaps import time_estimate, generateMap
 import googlemaps
+import regex as re
 import pprint
 
 app = Flask(__name__)
@@ -13,14 +14,17 @@ def index():
 
     if request.method == 'POST':
         address = request.form['address']
-
         try:
+            pattern = re.compile("[0-9]+ [a-zA-Z]+ [a-zA-Z]+, [a-zA-Z]+, [a-zA-Z]+ [0-9]+, [a-zA-Z]+")
             geocode_result = google_maps.geocode(address)
-            if geocode_result:
-                return redirect(url_for('services', address=geocode_result[0]['formatted_address']))
+            geocode_input = geocode_result[0]['formatted_address']
+            if re.search(pattern, geocode_input):
+                return redirect(url_for('services', address=geocode_input))
+            else:
+                error_msg = "Please input a valid address. Example: 6392 Truckee Court, Newark, CA"
         except:
             error_msg = "Please input an address. Example: 6392 Truckee Court, Newark, CA"
-            return render_template('index.html', error_msg=error_msg)
+        return render_template('index.html', error_msg=error_msg)
     else:
         return render_template('index.html')
 
@@ -39,9 +43,15 @@ def services():
         address = request.args.get('address')
         time, destination, distance = time_estimate(address)
         go_home = False
+        src = generateMap(address)
     except:
         go_home = True
-    return render_template('landing.html', time=time, destination=destination, distance=distance, go_home=go_home)
+    return render_template('landing.html',
+                           time=time,
+                           destination=destination,
+                           distance=distance,
+                           go_home=go_home,
+                           src=src)
 
 
 @app.route('/education', methods=['POST', 'GET'])
