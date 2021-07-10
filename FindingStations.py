@@ -85,8 +85,7 @@ def hospitalCalc(county, state):
             # Append value corresponding to the
             # 'name' key at the ith index of y
             hospitalName = y[i]['name']
-            if ('Pet' not in hospitalName) and ('Vet' not in hospitalName) and ('Animal' not in hospitalName)\
-            and ('Cat' not in hospitalName) and ('Dog' not in hospitalName):
+            if True:
                 if ('Hospital' in hospitalName):
                     county_hospital.append(y[i]['name'])
                     hospitalAddresses.append(y[i]['formatted_address'])
@@ -96,6 +95,9 @@ def hospitalCalc(county, state):
     county_hospital = list(county_hospital)
     return hospitalNumber, hospitalAddresses, county_hospital
 
-# AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
-# AlamedaHospitalNum, AlamedaHospAddresses = hospitalCalc('Alameda','CA')
+'''AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('Alameda','CA')
+AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('Alameda','CA')
 
+print(AlamedaStationNames)
+print(AlamedaHospNames)
+'''
