@@ -32,10 +32,13 @@
 				<a href="education" class="image">
 					<img src="static/images/pic08.jpg" alt="" data-position="center center" />
 				</a>
+				{% if not go_home %}
 				<iframe
-						width="600" height="450" style="border:0"
-						loading="lazy" allowfullscreen
-						src="{{ src }}"></iframe>
+					width="600" height="450" style="border:0"
+					loading="lazy" allowfullscreen
+					src="{{ src }}">
+				</iframe>
+				{% endif %}
 				<div class="content">
 					<div class="inner">
 						<header class="major">

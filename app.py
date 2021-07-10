@@ -37,8 +37,7 @@ def about_us():
 @app.route('/services', methods=['POST', 'GET'])
 def services():
     time = 0
-    destination = "None"
-    distance = "Far"
+    destination = src = distance = "None"
     try:
         address = request.args.get('address')
         time, destination, distance = time_estimate(address)
