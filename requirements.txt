@@ -2,7 +2,6 @@ Flask==1.1.2
 Flask-Cors==3.0.8
 Flask-SQLAlchemy==2.4.4
 future==0.16.0
-gast==0.2.2
 geographiclib==1.50
 geopy==2.0.0
 google-api-core==1.22.3

@@ -64,7 +64,10 @@
 							</form>
 						</header>
 						{% if not go_home %}
-						<p>Here is the path that the emergency responders will take to get to you.</p>
+						<p>Here is the path that the emergency responders will take to get to you. You can expect them
+							to arrive in {{ time }}. If you are assisting a senior, click the button below to see what
+							you can do to help while waiting.
+						</p>
 						{% endif %}
 						<ul class="actions">
 							<li><a href="education" class="button">What to do right now</a></li>
@@ -72,11 +75,21 @@
 					</div>
 				</div>
 			</section>
+
 			{% if not go_home %}
 			<section>
-				<a href="education" class="image">
-					<img src="static/images/pic09.jpg" alt="" data-position="top center" />
-				</a>
+				<div style="float: left;">
+					<div id="county_container" style="width: 600; height: 455;"> </div>
+<!--					<iframe-->
+<!--						width="600" height="455"-->
+<!--						loading="lazy" allowfullscreen-->
+<!--						src="{{ county_src }}">-->
+<!--					</iframe>-->
+				</div>
+
+<!--				<a href="education" class="image">-->
+<!--					<img src="static/images/pic09.jpg" alt="" data-position="top center" />-->
+<!--				</a>-->
 				<div class="content">
 					<div class="inner">
 						<header class="major">
@@ -122,5 +135,33 @@
 	{% endif %}
 
 </div>
+{% if not go_home %}
+<script type="text/javascript">
+	function initialize_map() {
+        var mapDiv = document.getElementById('county_container');
+        var map = new google.maps.Map(mapDiv, {
+            center: {lat: 28.7041, lng: -77.1025},
+            zoom: 10
+        });
+        var markerlocations = {{markers|tojson}};
+        console.log(markerlocations);
 
+		for(i = 0;  i < markerlocations.length; i++) {
+			var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(markerlocations[i][0], markerlocations[i][1]),
+					map: map,
+					icon:  markerlocations[i][3]
+			});
+			var address = '<div><p><b>markerlocations[i][2]</b></p></div>';
+			var infowindow = new google.maps.InfoWindow({
+			  content: address
+			});
+			marker.addListener('click', function() {
+			  infowindow.open(map, marker);
+			});
+		}
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&callback=initialize_map"></script>
+{% endif %}
 {% endblock %}
