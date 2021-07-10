@@ -49,9 +49,11 @@ def generateMap(address):
     address = address.replace(",", "")
     address = address.split(" ")
 
-    src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination[0]) + "%20" + \
-          str(destination[1]) + "%20" + str(destination[2]) + "%2C%20" + str(destination[3]) + "%2C%20" + \
-          str(destination[4]) + "%20" + str(destination[5]) + "%2C20" + str(destination[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C20" + str(address[6]) + "&mode=driving&maptype=roadmap"
+    src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination[0]) + "%20" \
+          + str(destination[1]) + "%20" + str(destination[2]) + "%2C%20" + str(destination[3]) + "%2C%20" + \
+          str(destination[4]) + "%20" + str(destination[5]) + "%2C20" + str(destination[6]) + "&destination=" + \
+          str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" \
+          + str(address[4]) + "%20" + str(address[5]) + "%2C20" + str(address[6]) + "&mode=driving&maptype=roadmap"
 
     return src, time, distance, destination_address
 
