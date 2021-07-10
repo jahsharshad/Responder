@@ -1,10 +1,10 @@
-from gmaps import getCitiesInCounty
+from gmaps import getCitiesInCounty, getCounty
 import requests
 import json
 
 # enter your api key here
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
-county = 'Alameda' # should come from user input 
+county = getCounty(94555) # should come from user input 
 # cities = ['Alameda', 'Oakland', 'Hayward', 'Pleasanton', 'Livermore', 'San Leandro', 'Berkeley', 'Dublin',
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
 #           'Piedmont', 'Sunol', 'Cherryland', 'Fairview', 'Ashland']
