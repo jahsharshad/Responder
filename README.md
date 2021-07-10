@@ -5,7 +5,7 @@
 -->
 <html>
 	<head>
-		<title>Home|Responder</title>
+		<title>Home | Responder</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
@@ -88,6 +88,8 @@
 					</nav>
 
 				<!-- Banner -->
+
+				<!-- Banner -->
 					<section id="banner" class="alt">
 						<div class="inner">
 							<header class="alt">
@@ -101,6 +103,8 @@
 									<div class="input"><input size="50" type="text" name="address" id="address" /></div>
 									<div class="input"><input type="submit" value="Let's Go!" /></div>
 									</div>
+								<span class="image">
+									<img src="images/bg1.jpg" alt="" />
 <!-- 									<div>{{ error_msg }}</div> -->
 								</form>
 								</ul>
@@ -157,7 +161,7 @@
 									<header class="major">
 										<h2>Helping the Community</h2>
 									</header>
-									<p>Responder is a free service that helps seniors get medical attention as soon as possible. With the help of google maps API, Plotly, and other amazing software, we bring to you Responder. Our grandparents and other seniors are the most vulnerable, especially after the pandemic. Keeping them safe is our first priority. Thanks, for helping us keep everyone safe! </p>
+									<p>Responder is a free service that helps seniors get medical attention as soon as possible. With the help of google maps API, Plotly, and other amazing software, we bring to you Responder. Our grandparents and other seniors are the most vulnerable, especially after the pandemic, and keeping them safe is our first priority. Thank you for helping us keep everyone healthy! </p>
 									<ul class="actions">
 										<li><a href="about.html" class="button next">Learn more about our team</a></li>
 									</ul>
