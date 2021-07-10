@@ -45,7 +45,6 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
                                           mode="driving",
                                           departure_time=now)
 
-
     timeString1 = directions_result1[0]['legs'][0]['duration']['text']
     timeString2 = directions_result2[0]['legs'][0]['duration']['text']
 
@@ -62,3 +61,8 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
         distance = directions_result1[0]['legs'][0]['distance']['text']
         destination_address = directions_result1[0]['legs'][0]['end_address']
     return time, destination_address, distance
+# =======
+#     time = directions_result[0]['legs'][0]['duration']['text']
+#     destination_address = directions_result[0]['legs'][0]['end_address']
+#     return time, distance, destination_address
+# >>>>>>> 9f0838674f54f7863997e2c0be0632415924b1c0
