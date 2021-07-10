@@ -7,54 +7,6 @@
 {% block body %}
 
 <!-- Main -->
-
-<!-- Banner -->
-					<header id="header" class="alt">
-						<!--<a href="index.html" class="logo"><strong>Responder</strong> <span>For Seniors</span></a> -->
-						<div class="large-menu">
-							<a style="border-bottom: none;" href="/">Home</a>
-							<a style="border-bottom: none;"  style="border-bottom: none;"  href="services">Services</a>
-							<a style="border-bottom: none;"  href="education">Education</a>
-							<a style="border-bottom: none;"  href="about-us">About Us</a>
-						</div>
-						<div class="small-menu">
-							<nav>
-								<a href="#menu">Menu</a>
-							</nav>
-						</div>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
-
-
-				<!-- Banner -->
-				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="inner"
-							{% if not go_home %}
-								<header class="major">
-									<h2>Your emergency response time is {{ time }}.</h2>
-								</header>
-								<p>The closest emergency center is {{ destination }}. You are {{ distance }} away.</p>
-							{% else %}
-								<header class="major">
-									<h2>Find the closest emergency center to you:</h2>
-								</header>
-							{% endif %}
-						</div>
-					</section>
 <div id="main">
 
 	<!-- One -->
