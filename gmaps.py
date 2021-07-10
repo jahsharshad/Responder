@@ -151,30 +151,22 @@ def generateCountyMap(address, stations, hospitals, stationNames, hospitalNames)
     emergency_names = stationNames + hospitalNames
     locations = {}
 
-    print(len(emergency_locations))
-    print("\n__________________--__________________\n")
-    print(len(emergency_names))
+    for x in range(len(emergency_names) - 1):
+        # format: {location: [lat, long]}
+        locations[emergency_names[x]] = [0, 0]
 
-    if len(emergency_locations) == len(emergency_names):
-        print("bet")
-        for x in range(len(emergency_names) - 1):
-            # format: {location: [lat, long]}
-            locations[emergency_names[x]] = [0, 0]
+    for i in range(len(emergency_locations) - 1):
+        try:
+            geocode_result = gmaps.geocode(emergency_locations[i])
+            lat = geocode_result[0]['geometry']['location']['lat']
+            long = geocode_result[0]['geometry']['location']['lng']
+            locations[emergency_names[i]] = [lat, long]
+            # print(locations[emergency_locations[i]])
+        except IndexError:
+            print("Address was incorrect...")
+        except Exception as e:
+            print("Unexpected error ocurred.", e)
 
-        for i in range(len(emergency_locations) - 1):
-            try:
-                geocode_result = gmaps.geocode(emergency_locations[i])
-                lat = geocode_result[0]['geometry']['location']['lat']
-                long = geocode_result[0]['geometry']['location']['lng']
-                locations[emergency_names[i]] = [lat, long]
-                # print(locations[emergency_locations[i]])
-            except IndexError:
-                print("Address was incorrect...")
-            except Exception as e:
-                print("Unexpected error ocurred.", e)
+    src = "https://www.google.com/maps/embed/v1/place?key=" + str(api_key) + "&q=" + str(address)
 
-        src = "https://www.google.com/maps/embed/v1/place?key=" + str(api_key) + "&q=" + str(address)
-
-        return src, locations
-    print("no bet")
-    return "a", "[b]"
+    return src, locations
