@@ -42,9 +42,21 @@
 				<div class="content">
 					<div class="inner">
 						<header class="major">
-							<h3>Orci maecenas</h3>
+							<h3>Hospitals Near You</h3>
+							<form action="/" method="POST">
+								<div class="field half">
+									<label for="address">Type in your address to locate hospitals near you</label>
+									<div class="input address-box" style="margin-right: 20px;">
+										<input size="50" type="text" name="address" id="address" />
+									</div>
+									<div class="input"><input type="submit"
+															  class="address-button"
+															  value="Let's Go!" /></div>
+								</div>
+								<div>{{ error_msg }}</div>
+							</form>
 						</header>
-						<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+						<p>Here is the path to the emergency center that is closest to you.</p>
 						<ul class="actions">
 							<li><a href="education" class="button">Learn more</a></li>
 						</ul>
