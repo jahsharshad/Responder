@@ -36,5 +36,5 @@ def predict(stations, area, urban):
     prediction = prediction.flatten()
     return prediction[0].item()
 
-print(predict(429,789,0.5))
-print(type(predict(429,789,0.5)))
+'''print(predict(429,789,0.5))
+print(type(predict(429,789,0.5)))'''
