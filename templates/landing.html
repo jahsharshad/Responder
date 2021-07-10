@@ -22,7 +22,6 @@
 					<header class="major">
 						<h2>Find the closest emergency center to you:</h2>
 					</header>
-					<a href="/" class="button">Go home</a>
 				{% endif %}
 			</div>
 <!--				</article>-->
@@ -41,10 +40,9 @@
 				</div>
 				{% else %}
 				<div style="float: left;">
-					<iframe
-						width="600" height="450" style="border:0"
-						loading="lazy" >
-					</iframe>
+					<div style="height:450px; width:600px; padding-top:105px; padding-left:140px;">
+						Enter an address to see what route the emergency responders will take to get to your location.
+					</div>
 				</div>
 				{% endif %}
 				<div class="content">
@@ -64,7 +62,9 @@
 								<div>{{ error_msg }}</div>
 							</form>
 						</header>
+						{% if not go_home %}
 						<p>Here is the path that the emergency responders will take to get to you.</p>
+						{% endif %}
 						<ul class="actions">
 							<li><a href="education" class="button">What to do right now</a></li>
 						</ul>
