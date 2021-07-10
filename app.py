@@ -10,12 +10,12 @@ google_maps = googlemaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    yourl = "https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJJ2jwac6_j4ARF0TwRREqtMA&destination=39039%20Cherry%20St%2C%20Newark%2C%20CA%2094560%2C%20USA&key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk"
-
     if request.method == 'POST':
         address = request.form['address']
         try:
-            pattern = re.compile("[0-9]+ ([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+ [0-9]+, ([a-zA-Z]+ )?[a-zA-Z]+")
+            pattern = re.compile("[0-9]+ ([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?"
+                                 "([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+ [0-9]+, "
+                                 "([a-zA-Z]+ )?[a-zA-Z]+")
             geocode_result = google_maps.geocode(address)
             geocode_input = geocode_result[0]['formatted_address']
             if re.search(pattern, geocode_input):
@@ -38,6 +38,9 @@ def about_us():
 def services():
     time = 0
     destination = src = distance = "None"
+    if request.method == 'POST':
+        print(request.json['data'])
+        # print('lol')
     try:
         address = request.args.get('address')
         # time, destination, distance = time_estimate(address)
