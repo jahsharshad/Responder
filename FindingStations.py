@@ -1,4 +1,4 @@
-from main import getCitiesInCounty, getCounty
+from gmaps import getCitiesInCounty, getCounty
 import requests
 import json
 
