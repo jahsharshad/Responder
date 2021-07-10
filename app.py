@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from gmaps import generateMap
+from FindingStations import stationCalc, hospitalCalc
 import googlemaps
 import regex as re
 import urllib
@@ -46,9 +47,13 @@ def services():
         address = google_maps.reverse_geocode((latitude, longitude))[0]['formatted_address']
         address = {'address': urllib.parse.urlencode({'address': address})}
         return jsonify(address)
-    else:
-        address = request.args.get('address')
     try:
+        address = request.args.get('address')
+        address_components = google_maps.geocode(address)
+        county = address_components[0]['address_components'][3]['long_name']
+        state = address_components[0]['address_components'][4]['short_name']
+        # print(stationCalc(county, state))
+        # print(hospitalCalc(county, state))
         src, time, distance, destination = generateMap(address)
     except:
         go_home = True

@@ -1,4 +1,4 @@
-from main import getCitiesInCounty, getCounty
+from gmaps import getCitiesInCounty, getCounty
 import requests
 import json
 
@@ -85,4 +85,4 @@ def hospitalCalc(county, state):
                     county_hospital.append((y[i]['name']))
 
     county_hospital = set(county_hospital)
-    return (len(county_hospital))
+    return len(county_hospital)
