@@ -162,6 +162,29 @@
 		}
     }
 </script>
+
+<script>
+	function getLocation() {
+	  if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(passPosition);
+	  } else {
+	  }
+	}
+
+	function passPosition(position) {
+		var dat = [position.coords.latitude, position.coords.longitude];
+
+		$.ajax({
+			type: 'POST',
+			url: "/services",
+			data: JSON.stringify(dat),
+			contentType: 'application/json;charset=UTF-8',
+			success: function(data){
+				window.location.href = "/services?" + data.address;
+			}
+		});
+	}
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&callback=initialize_map"></script>
 {% endif %}
 {% endblock %}

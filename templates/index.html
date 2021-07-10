@@ -88,4 +88,26 @@
 
 	</div>
 
+
+<script>
+	function getLocation() {
+	  if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(passPosition);
+	  }
+	}
+
+	function passPosition(position) {
+		var dat = [position.coords.latitude, position.coords.longitude];
+
+		$.ajax({
+			type: 'POST',
+			url: "/services",
+			data: JSON.stringify(dat),
+			contentType: 'application/json;charset=UTF-8',
+			success: function(data) {
+				window.location.href = "/services?" + data.address;
+			}
+		});
+	}
+</script>
 {% endblock %}

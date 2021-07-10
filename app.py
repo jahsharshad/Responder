@@ -50,7 +50,7 @@ def services():
         return jsonify(address)
     try:
         address = request.args.get('address')
-        # address_components = google_maps.geocode(address)
+        address_components = google_maps.geocode(address)
         # print("Got address")
         #
         # county = address_components[0]['address_components'][3]['long_name']
