@@ -84,13 +84,13 @@ def hospitalCalc(county, state):
             hospitalName = y[i]['name']
             if ('Pet' not in hospitalName) and ('Vet' not in hospitalName) and ('Animal' not in hospitalName):
                 if ('Cat' not in hospitalName) and ('Dog' not in hospitalName):
-                    county_hospital.append((y[i]['name']))
-                    hospitalAddresses.append(y[i]['formatted_address'])
+                    if ('Center' in hospitalName) or ('Hospital' in hospitalName):
+                        county_hospital.append((y[i]['name']))
+                        hospitalAddresses.append(y[i]['formatted_address'])
 
     county_hospital = set(county_hospital)
     hospitalNumber = len(county_hospital)
     return hospitalNumber, hospitalAddresses
 
-"""AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
+AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
 AlamedaHospitalNum, AlamedaHospAddresses = hospitalCalc('Alameda','CA')
-"""

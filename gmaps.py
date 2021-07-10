@@ -14,6 +14,7 @@ county_data = pd.read_csv("CountyData.csv")
 global city_data
 city_data = pd.read_csv("Cities_Counties.csv")
 
+
 def generateMap(address):
     # "3749 Armour Court, Fremont, CA 94555 USA"
     # input type, connect gmaps py to html and call function while giving input for address, making input for google maps on page
@@ -26,12 +27,12 @@ def generateMap(address):
     clipped_address = clipped_address[:5]
     clipped_address = " ".join(str(i) for i in clipped_address)
 
-    directions_result1 = gmaps.directions(clipped_address, "fire station near "+clipped_address,
-                                        mode="driving",
-                                        departure_time=now)
-    directions_result2 = gmaps.directions(clipped_address, "hospital near "+clipped_address,
-                                        mode="driving",
-                                        departure_time=now)
+    directions_result1 = gmaps.directions(clipped_address, "fire station near " + clipped_address,
+                                          mode="driving",
+                                          departure_time=now)
+    directions_result2 = gmaps.directions(clipped_address, "hospital near " + clipped_address,
+                                          mode="driving",
+                                          departure_time=now)
 
     timeString1 = directions_result1[0]['legs'][0]['duration']['text']
     timeString2 = directions_result2[0]['legs'][0]['duration']['text']
@@ -59,9 +60,12 @@ def generateMap(address):
 
     src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination[0]) + "%20" + \
           str(destination[1]) + "%20" + str(destination[2]) + "%2C%20" + str(destination[3]) + "%2C%20" + \
-          str(destination[4]) + "%20" + str(destination[5]) + "%2C%20" + str(destination[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C%20" + str(address[6]) + "&mode=driving&maptype=roadmap"
+          str(destination[4]) + "%20" + str(destination[5]) + "%2C%20" + str(destination[6]) + "&destination=" + str(
+        address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(
+        address[4]) + "%20" + str(address[5]) + "%2C%20" + str(address[6]) + "&mode=driving&maptype=roadmap"
 
     return src, time, distance, destination_address
+
 
 # print(generateMap("3749 Armour Court, Fremont, CA 94555 USA"))
 
@@ -70,10 +74,10 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
     gmaps = googlemaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
 
     now = datetime.now()
-    directions_result1 = gmaps.directions(address, "fire station near "+address,
+    directions_result1 = gmaps.directions(address, "fire station near " + address,
                                           mode="driving",
                                           departure_time=now)
-    directions_result2 = gmaps.directions(address, "hospital near "+address,
+    directions_result2 = gmaps.directions(address, "hospital near " + address,
                                           mode="driving",
                                           departure_time=now)
 
@@ -93,11 +97,13 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
         destination_address = directions_result1[0]['legs'][0]['end_address']
     return time, destination_address, distance
 
+
 def getCounty(zip):
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + str(zip) + "&key=" + api_key
     response = requests.get(url)
     response = response.json()
     return str(response["results"][0]["address_components"][2]["long_name"])
+
 
 def getCountyPop(county):
     countyData = county_data[["COUNTYNAME", "POPULATION"]]
@@ -109,13 +115,16 @@ def getCountyPop(county):
     index = inv_countyData[county]
     return popData[index]
 
+
 def getUrbanValue(population):
     if population > 50000:
         return 1
     return 0.5
 
+
 def flatten(t):
     return [item for sublist in t for item in sublist]
+
 
 def getCitiesInCounty(county):
     if "County" in county:
@@ -128,6 +137,7 @@ def getCitiesInCounty(county):
 
     return cities
 
+
 '''
 Reference"
     <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=5001%20Deep%20Creek%2C%20Rd,%2C%20Fremont,%20CA%2C%2094555,&destination=5121%20Stagecoach%20Street%2C%20Fremont%2C%20CA%2094555%2C%20US&mode=driving&maptype=roadmap"></iframe>
@@ -139,22 +149,22 @@ def generateCountyMap(address, stations, hospitals):
 
     emergency_locations = stations + hospitals
     locations = {}
-    for x in range(len(emergency_locations)-1):
-        #format: {location: [lat, long]}
+    for x in range(len(emergency_locations) - 1):
+        # format: {location: [lat, long]}
         locations[emergency_locations[x]] = [0, 0]
 
-    for i in range(len(emergency_locations)-1):
+    for i in range(len(emergency_locations) - 1):
         try:
             geocode_result = gmaps.geocode(emergency_locations[i])
             lat = geocode_result[0]['geometry']['location']['lat']
             long = geocode_result[0]['geometry']['location']['lng']
             locations[emergency_locations[i]] = [lat, long]
+            # print(locations[emergency_locations[i]])
         except IndexError:
             print("Address was incorrect...")
         except Exception as e:
             print("Unexpected error ocurred.", e)
-    
+
     src = "https://www.google.com/maps/embed/v1/place?key=" + str(api_key) + "&q=" + str(address)
-    
 
     return src, locations
