@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
-from gmaps import generateMap
+from gmaps import generateMap, generateCountyMap
 from FindingStations import stationCalc, hospitalCalc
 import googlemaps
 import regex as re
@@ -39,7 +39,8 @@ def about_us():
 @app.route('/services', methods=['POST', 'GET'])
 def services():
     time = 0
-    destination = src = distance = "None"
+    destination = src = distance = county_src = "None"
+    locations = {'hospital': [40.3453453, -79.8327498]}
     go_home = False
     if request.method == 'POST':
         latitude = request.get_json()[0]
@@ -49,20 +50,37 @@ def services():
         return jsonify(address)
     try:
         address = request.args.get('address')
-        address_components = google_maps.geocode(address)
-        county = address_components[0]['address_components'][3]['long_name']
-        state = address_components[0]['address_components'][4]['short_name']
-        # print(stationCalc(county, state))
-        # print(hospitalCalc(county, state))
+        # address_components = google_maps.geocode(address)
+        # print("Got address")
+        #
+        # county = address_components[0]['address_components'][3]['long_name']
+        # state = address_components[0]['address_components'][4]['short_name']
+        # print("Got county and state")
+        #
+        # # _, station_addresses = stationCalc(county, state)
+        # # _, hospital_addresses = hospitalCalc(county, state)
+        # # print("Got station and hospital addresses")
+        # #
+        # # county_src, locations = generateCountyMap(address, station_addresses, hospital_addresses)
+        # # print("Generated county map")
         src, time, distance, destination = generateMap(address)
+        print("Generated map")
     except:
         go_home = True
+
+    markers = []
+    for location in locations:
+        loc_lat_long = [locations[location][0], locations[location][1], location,
+                        '/static/images/favicon_red_marker.png']
+        markers.append(loc_lat_long)
     return render_template('landing.html',
                            time=time,
                            destination=destination,
                            distance=distance,
                            go_home=go_home,
-                           src=src)
+                           src=src,
+                           county_src=county_src,
+                           markers=markers)
 
 
 @app.route('/education', methods=['POST', 'GET'])
