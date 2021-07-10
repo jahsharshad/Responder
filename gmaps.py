@@ -2,10 +2,13 @@ from datetime import datetime
 import googlemaps
 import requests
 import json
+import pandas as pd
 
 global api_key
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
 
+global data
+data = pd.read_csv("CountyData.csv")
 
 def generateMap(address):
     # "3749 Armour Court, Fremont, CA 94555 USA"
@@ -91,6 +94,21 @@ def getCounty(zip):
     response = requests.get(url)
     response = response.json()
     return str(response["results"][0]["address_components"][2]["long_name"])
+
+def getCountyPop(county):
+    countyData = data[["COUNTYNAME", "POPULATION"]]
+    countyData = countyData.to_dict()
+    countyNames = countyData["COUNTYNAME"]
+    popData = countyData["POPULATION"]
+
+    inv_countyData = {v: k for k, v in countyNames.items()}
+    index = inv_countyData[county]
+    return popData[index]
+
+def getUrbanValue(population):
+    if population > 50000:
+        return 1
+    return 0.5
 
 '''
 Reference"
