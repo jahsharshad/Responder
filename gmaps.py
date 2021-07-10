@@ -50,10 +50,9 @@ def generateMap(address):
 
     src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination[0]) + "%20" + \
           str(destination[1]) + "%20" + str(destination[2]) + "%2C%20" + str(destination[3]) + "%2C%20" + \
-          str(destination[4]) + "%20" + str(destination[5]) + "%2C20" + str(destination[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C20" + str(address[6]) + "&mode=driving&maptype=roadmap"
+          str(destination[4]) + "%20" + str(destination[5]) + "%2C%20" + str(destination[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C%20" + str(address[6]) + "&mode=driving&maptype=roadmap"
 
     return src, time, distance, destination_address
-
 
 # print(generateMap("3749 Armour Court, Fremont, CA 94555 USA"))
 
@@ -87,5 +86,5 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
 
 '''
 Reference"
-    <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=35659%20Fremont%20Blvd%2C%20Fremont%2C%20CA%2094536%2C20USA&destination=3749%20Armour%20Court%2C%20Fremont%2C%20CA%2094555%2C20USA&mode=driving&maptype=roadmap"></iframe>
+    <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=5001%20Deep%20Creek%2C%20Rd,%2C%20Fremont,%20CA%2C%2094555,&destination=5121%20Stagecoach%20Street%2C%20Fremont%2C%20CA%2094555%2C%20US&mode=driving&maptype=roadmap"></iframe>
 '''
