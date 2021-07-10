@@ -46,7 +46,7 @@ def stationCalc(county, state):
                 stationAddresses.append(y[i]['formatted_address'])
 
     county_station = set(county_station)
-    return len(county_station)
+    return len(county_station), stationAddresses
 
 
 county_hospital = []
