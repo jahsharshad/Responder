@@ -11,7 +11,8 @@
 
 	<!-- One -->
 		<section id="one">
-			<div class="inner">
+			<div class="inner"
+				 style="background-image: url('static/images/response_time.jpg') no-repeat">
 				{% if not go_home %}
 					<header class="major">
 						<h2>Your emergency response time is {{ time }}.</h2>
@@ -24,6 +25,7 @@
 					<a href="/" class="button">Go home</a>
 				{% endif %}
 			</div>
+<!--				</article>-->
 		</section>
 
 	<!-- Two -->
@@ -35,6 +37,13 @@
 						width="600" height="450" style="border:0"
 						loading="lazy" allowfullscreen
 						src="{{ src }}">
+					</iframe>
+				</div>
+				{% else %}
+				<div style="float: left;">
+					<iframe
+						width="600" height="450" style="border:0"
+						loading="lazy" >
 					</iframe>
 				</div>
 				{% endif %}
@@ -57,7 +66,7 @@
 						</header>
 						<p>Here is the path to the emergency center that is closest to you.</p>
 						<ul class="actions">
-							<li><a href="education" class="button">Learn more</a></li>
+							<li><a href="education" class="button">What to do right now</a></li>
 						</ul>
 					</div>
 				</div>

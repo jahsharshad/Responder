@@ -15,7 +15,7 @@ def index():
     if request.method == 'POST':
         address = request.form['address']
         try:
-            pattern = re.compile("[0-9]+ [a-zA-Z]+ [a-zA-Z]+, [a-zA-Z]+, [a-zA-Z]+ [0-9]+, [a-zA-Z]+")
+            pattern = re.compile("[0-9]+ [a-zA-Z]+ [a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+, [a-zA-Z]+ [0-9]+, [a-zA-Z]+")
             geocode_result = google_maps.geocode(address)
             geocode_input = geocode_result[0]['formatted_address']
             if re.search(pattern, geocode_input):
