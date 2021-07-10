@@ -10,7 +10,7 @@
 
 <!-- Banner -->
 					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Responder</strong> <span>For Seniors</span></a>
+						<!--<a href="index.html" class="logo"><strong>Responder</strong> <span>For Seniors</span></a> -->
 						<div class="large-menu">
 							<a style="border-bottom: none;" href="/">Home</a>
 							<a style="border-bottom: none;"  style="border-bottom: none;"  href="services">Services</a>
@@ -42,13 +42,17 @@
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
 					<section id="banner" class="style2">
-						<div class="inner">
-							<span class="image">
-								<img src="images/team2.jpg" alt="" />
-							</span>
-							<header class="major">
-								<h1>Find the closest emergency center to you:</h1>
-							</header>
+						<div class="inner"
+							{% if not go_home %}
+								<header class="major">
+									<h2>Your emergency response time is {{ time }}.</h2>
+								</header>
+								<p>The closest emergency center is {{ destination }}. You are {{ distance }} away.</p>
+							{% else %}
+								<header class="major">
+									<h2>Find the closest emergency center to you:</h2>
+								</header>
+							{% endif %}
 						</div>
 					</section>
 <div id="main">
