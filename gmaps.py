@@ -1,5 +1,7 @@
 from datetime import datetime
 import googlemaps
+import requests
+import json
 
 global api_key
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
@@ -83,6 +85,12 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
         distance = directions_result1[0]['legs'][0]['distance']['text']
         destination_address = directions_result1[0]['legs'][0]['end_address']
     return time, destination_address, distance
+
+def getCounty(zip):
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + str(zip) + "&key=" + api_key
+    response = requests.get(url)
+    response = response.json()
+    return str(response["results"][0]["address_components"][2]["long_name"])
 
 '''
 Reference"
