@@ -25,7 +25,7 @@ def stationCalc(county, state):
 
         # get method of requests module
         # return response object
-        r = requests.get(url + 'query=' + query +
+        r = requests.get(url + 'query=' + query + '&type=fire_station'
                          '&key=' + api_key)
 
         # json method of response object convert
@@ -67,7 +67,7 @@ def hospitalCalc(county, state):
 
         # get method of requests module
         # return response object
-        r = requests.get(url + 'query=' + query +
+        r = requests.get(url + 'query=' + query + '&type=hospital'
                          '&key=' + api_key)
 
         # json method of response object convert
@@ -95,3 +95,7 @@ def hospitalCalc(county, state):
     hospitalNumber = len(county_hospital)
     county_hospital = list(county_hospital)
     return hospitalNumber, hospitalAddresses, county_hospital
+
+# AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
+# AlamedaHospitalNum, AlamedaHospAddresses = hospitalCalc('Alameda','CA')
+
