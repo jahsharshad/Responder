@@ -15,7 +15,7 @@ def index():
     if request.method == 'POST':
         address = request.form['address']
         try:
-            pattern = re.compile("[0-9]+ [a-zA-Z]+ [a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+, [a-zA-Z]+ [0-9]+, [a-zA-Z]+")
+            pattern = re.compile("[0-9]+ ([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+ [0-9]+, ([a-zA-Z]+ )?[a-zA-Z]+")
             geocode_result = google_maps.geocode(address)
             geocode_input = geocode_result[0]['formatted_address']
             if re.search(pattern, geocode_input):
@@ -40,9 +40,9 @@ def services():
     destination = src = distance = "None"
     try:
         address = request.args.get('address')
-        time, destination, distance = time_estimate(address)
+        # time, destination, distance = time_estimate(address)
         go_home = False
-        src = generateMap(address)
+        src, time, distance, destination = generateMap(address)
     except:
         go_home = True
     return render_template('landing.html',

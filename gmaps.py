@@ -42,16 +42,20 @@ def generateMap(address):
     print("Destination:", destination_address)
     print("Address:", address)
 
-    destination_address = destination_address.replace(",", "")
-    destination_address = destination_address.split(" ")
+    destination = destination_address.replace(",", "")
+    destination = destination_address.split(" ")
 
     address = address.replace(",", "")
     address = address.split(" ")
 
-    src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination_address[0]) + "%20" + str(destination_address[1]) + "%20" + str(destination_address[2]) + "%2C%20" + str(destination_address[3]) + "%2C%20" + str(destination_address[4]) + "%20" + str(destination_address[5]) + "%2C20" + str(destination_address[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C20" + str(address[6]) + "&mode=driving&maptype=roadmap"
-    return src
+    src = "https://www.google.com/maps/embed/v1/directions?key=" + api_key + "&origin=" + str(destination[0]) + "%20" + \
+          str(destination[1]) + "%20" + str(destination[2]) + "%2C%20" + str(destination[3]) + "%2C%20" + \
+          str(destination[4]) + "%20" + str(destination[5]) + "%2C20" + str(destination[6]) + "&destination=" + str(address[0]) + "%20" + str(address[1]) + "%20" + str(address[2]) + "%2C%20" + str(address[3]) + "%2C%20" + str(address[4]) + "%20" + str(address[5]) + "%2C20" + str(address[6]) + "&mode=driving&maptype=roadmap"
 
-print(generateMap("3749 Armour Court, Fremont, CA 94555 USA"))
+    return src, time, distance, destination_address
+
+
+# print(generateMap("3749 Armour Court, Fremont, CA 94555 USA"))
 
 
 def time_estimate(address="6392 Truckee Court, Newark, CA"):
