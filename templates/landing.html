@@ -29,15 +29,14 @@
 	<!-- Two -->
 		<section id="two" class="spotlights">
 			<section>
-				<a href="education" class="image">
-					<img src="static/images/pic08.jpg" alt="" data-position="center center" />
-				</a>
 				{% if not go_home %}
-				<iframe
-					width="600" height="450" style="border:0"
-					loading="lazy" allowfullscreen
-					src="{{ src }}">
-				</iframe>
+				<div style="float: left;">
+					<iframe
+						width="600" height="450" style="border:0"
+						loading="lazy" allowfullscreen
+						src="{{ src }}">
+					</iframe>
+				</div>
 				{% endif %}
 				<div class="content">
 					<div class="inner">
