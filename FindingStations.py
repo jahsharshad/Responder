@@ -9,7 +9,7 @@ county = 'Alameda' # should come from user input
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
 #           'Piedmont', 'Sunol', 'Cherryland', 'Fairview', 'Ashland']
 cities = getCitiesInCounty(county)
-state = 'CA'
+state = 'CA' # should come from user input
 county_station = []
 
 def stationCalc():
