@@ -91,5 +91,6 @@ def hospitalCalc(county, state):
     hospitalNumber = len(county_hospital)
     return hospitalNumber, hospitalAddresses
 
-AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
+"""AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
 AlamedaHospitalNum, AlamedaHospAddresses = hospitalCalc('Alameda','CA')
+"""

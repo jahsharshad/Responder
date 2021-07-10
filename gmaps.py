@@ -1,5 +1,6 @@
 from datetime import datetime
 import googlemaps
+from googlemaps import Client as GoogleMaps
 import requests
 import json
 import pandas as pd
@@ -131,3 +132,29 @@ def getCitiesInCounty(county):
 Reference"
     <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=5001%20Deep%20Creek%2C%20Rd,%2C%20Fremont,%20CA%2C%2094555,&destination=5121%20Stagecoach%20Street%2C%20Fremont%2C%20CA%2094555%2C%20US&mode=driving&maptype=roadmap"></iframe>
 '''
+
+
+def generateCountyMap(address, stations, hospitals):
+    gmaps = GoogleMaps(api_key)
+
+    emergency_locations = stations + hospitals
+    locations = {}
+    for x in range(len(emergency_locations)-1):
+        #format: {location: [lat, long]}
+        locations[emergency_locations[x]] = [0, 0]
+
+    for i in range(len(emergency_locations)-1):
+        try:
+            geocode_result = gmaps.geocode(emergency_locations[i])
+            lat = geocode_result[0]['geometry']['location']['lat']
+            long = geocode_result[0]['geometry']['location']['lng']
+            locations[emergency_locations[i]] = [lat, long]
+        except IndexError:
+            print("Address was incorrect...")
+        except Exception as e:
+            print("Unexpected error ocurred.", e)
+    
+    src = "https://www.google.com/maps/embed/v1/place?key=" + str(api_key) + "&q=" + str(address)
+    
+
+    return src, locations
