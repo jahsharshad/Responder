@@ -78,5 +78,5 @@ def hospitalCalc(county, state):
             # 'name' key at the ith index of y
             county_hospital.append((y[i]['name']))
 
-    county_station = set(county_hospital)
-    return len(county_station)
+    county_hospital = set(county_hospital)
+    return len(county_hospital)
