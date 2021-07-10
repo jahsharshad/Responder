@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from gmaps import time_estimate, generateMap
+from gmaps import generateMap
 import googlemaps
 import regex as re
 import pprint

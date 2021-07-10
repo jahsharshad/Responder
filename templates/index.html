@@ -12,13 +12,17 @@
 				<ul class="actions">
     				<form action="/" method="POST">
 						<div class="field half">
-							<label for="address">Type in your address to locate hospitals near you</label>
+							<label for="address" style="font-size: 18px">Type in your address to locate hospitals near you</label>
 							<div class="input address-box" style="margin-right: 20px;">
 								<input size="50" type="text" name="address" id="address" />
 							</div>
 							<div class="input"><input type="submit" class="address-button" value="Let's Go!" /></div>
 						</div>
 						<div>{{ error_msg }}</div>
+						<div style="padding-top: 20px">
+							<p style="font-size: 18px">or</p>
+							<input type="submit" class="address-button" value="Use your current location" />
+						</div>
 					</form>
 				</ul>
 			</div>
@@ -81,5 +85,19 @@
 			</section>
 
 	</div>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
 {% endblock %}
