@@ -80,6 +80,7 @@ def time_estimate(address="6392 Truckee Court, Newark, CA"):
         distance = directions_result1[0]['legs'][0]['distance']['text']
         destination_address = directions_result1[0]['legs'][0]['end_address']
     return time, destination_address, distance
+
 '''
 Reference"
     <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=35659%20Fremont%20Blvd%2C%20Fremont%2C%20CA%2094536%2C20USA&destination=3749%20Armour%20Court%2C%20Fremont%2C%20CA%2094555%2C20USA&mode=driving&maptype=roadmap"></iframe>
