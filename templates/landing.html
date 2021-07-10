@@ -2,91 +2,95 @@
 
 {% block body %}
 
-				<!-- Main -->
-					<div id="main">
+<!-- Main -->
+<div id="main">
 
-						<!-- One -->
-							<section id="one">
-								<div class="inner">
-									{% if not go_home %}
-										<header class="major">
-											<h2>Your emergency response time is {{ time }}.</h2>
-										</header>
-										<p>The closest emergency center is {{ destination }}.</p>
-									{% else %}
-										<header class="major">
-											<h2>Find the closest emergency center to you:</h2>
-										</header>
-										<a href="/" class="button">Go home</a>
-									{% endif %}
-								</div>
-							</section>
+	<!-- One -->
+		<section id="one">
+			<div class="inner">
+				{% if not go_home %}
+					<header class="major">
+						<h2>Your emergency response time is {{ time }}.</h2>
+					</header>
+					<p>The closest emergency center is {{ destination }}. You are {{ distance }} away.</p>
+				{% else %}
+					<header class="major">
+						<h2>Find the closest emergency center to you:</h2>
+					</header>
+					<a href="/" class="button">Go home</a>
+				{% endif %}
+			</div>
+		</section>
 
-						<!-- Two -->
-							<section id="two" class="spotlights">
-								<section>
-									<a href="education" class="image">
-										<img src="static/images/pic08.jpg" alt="" data-position="center center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Orci maecenas</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="education" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="education" class="image">
-										<img src="static/images/pic09.jpg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Rhoncus magna</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="education" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="education" class="image">
-										<img src="static/images/pic10.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Sed nunc ligula</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="education" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</section>
-
-						<!-- Three -->
-							<section id="three">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="education" class="button next">Get Started</a></li>
-									</ul>
-								</div>
-							</section>
-
+	<!-- Two -->
+		<section id="two" class="spotlights">
+			<section>
+				<a href="education" class="image">
+					<img src="static/images/pic08.jpg" alt="" data-position="center center" />
+				</a>
+				<iframe
+						width="600" height="450" style="border:0"
+						loading="lazy" allowfullscreen
+						src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJJ2jwac6_j4ARF0TwRREqtMA&destination=Washington%20Hospital%20Healthcare%20System%2C%202000%20Mowry%20Ave%2C%20Fremont%2C%20CA%2094538&key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk"></iframe>
+				<div class="content">
+					<div class="inner">
+						<header class="major">
+							<h3>Orci maecenas</h3>
+						</header>
+						<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+						<ul class="actions">
+							<li><a href="education" class="button">Learn more</a></li>
+						</ul>
 					</div>
+				</div>
+			</section>
+			<section>
+				<a href="education" class="image">
+					<img src="static/images/pic09.jpg" alt="" data-position="top center" />
+				</a>
+				<div class="content">
+					<div class="inner">
+						<header class="major">
+							<h3>Rhoncus magna</h3>
+						</header>
+						<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+						<ul class="actions">
+							<li><a href="education" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<a href="education" class="image">
+					<img src="static/images/pic10.jpg" alt="" data-position="25% 25%" />
+				</a>
+				<div class="content">
+					<div class="inner">
+						<header class="major">
+							<h3>Sed nunc ligula</h3>
+						</header>
+						<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+						<ul class="actions">
+							<li><a href="education" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</section>
+
+	<!-- Three -->
+		<section id="three">
+			<div class="inner">
+				<header class="major">
+					<h2>Massa libero</h2>
+				</header>
+				<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+				<ul class="actions">
+					<li><a href="education" class="button next">Get Started</a></li>
+				</ul>
+			</div>
+		</section>
+
+</div>
 
 {% endblock %}

@@ -12,11 +12,16 @@
 				<ul class="actions">
     				<form action="/" method="POST">
 						<div class="field half">
-						<label for="address">Type in your address to locate hospitals near you</label>
-						<div class="input address-box" style="margin-top: 20px;">
-							<input size="50" type="text" name="address" id="address" />
-						</div>
-						<div class="input"><input type="submit" value="Let's Go!" /></div>
+							<label for="address">Type in your address to locate hospitals near you</label>
+<!--							<div class="address-input">-->
+<!--								<input size="50" type="text" name="address" id="address" />-->
+<!--							</div>-->
+<!--							<input type="submit" value="Let's Go!" />-->
+							<div class="input address-box" style="margin-right: 20px;">
+<!--								<div class="myborder">&nbsp;</div>-->
+								<input size="50" type="text" name="address" id="address" />
+							</div>
+							<div class="input"><input type="submit" class="address-button" value="Let's Go!" /></div>
 						</div>
 						<div>{{ error_msg }}</div>
 					</form>
@@ -75,7 +80,7 @@
 					</header>
 					<p>Responder is a free service that helps seniors get medical attention as soon as possible. With the help of google maps API, Plotly, and other amazing software, we bring to you Responder. Our grandparents and other seniors are the most vulnerable, especially after the pandemic. Keeping them safe is our first priority. Thanks, for helping us keep everyone safe! </p>
 					<ul class="actions">
-						<li><a href="about.html" class="button next">Learn more about our team</a></li>
+						<li><a href="about-us" class="button next">Learn more about our team</a></li>
 					</ul>
 				</div>
 			</section>

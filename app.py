@@ -34,13 +34,14 @@ def about_us():
 def services():
     time = 0
     destination = "None"
+    distance = "Far"
     try:
         address = request.args.get('address')
-        time, destination = time_estimate(address)
+        time, destination, distance = time_estimate(address)
         go_home = False
     except:
         go_home = True
-    return render_template('landing.html', time=time, destination=destination, go_home=go_home)
+    return render_template('landing.html', time=time, destination=destination, distance=distance, go_home=go_home)
 
 
 @app.route('/education', methods=['POST', 'GET'])
