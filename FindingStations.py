@@ -56,7 +56,7 @@ def hospitalCalc(county, state):
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
 
         # The text string on which to search
-        query = 'Fire station in ' + city + ', ' + state
+        query = 'Hospital in ' + city + ', ' + state
 
         # get method of requests module
         # return response object
