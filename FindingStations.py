@@ -13,7 +13,6 @@ stateName = 'CA'  # should come from user input
 county_station = []
 stationAddresses = []
 
-
 def stationCalc(county, state):
     global county_station
     cities = getCitiesInCounty(county)
@@ -47,12 +46,13 @@ def stationCalc(county, state):
                 stationAddresses.append(y[i]['formatted_address'])
 
     county_station = set(county_station)
-    return len(county_station), stationAddresses
+    stationNumber = len(county_station)
+    county_station = list(county_station)
+    return stationNumber, stationAddresses, county_station
 
 
 county_hospital = []
 hospitalAddresses = []
-
 
 def hospitalCalc(county, state):
     global county_hospital
@@ -80,20 +80,18 @@ def hospitalCalc(county, state):
         y = x['results']
 
         # keep looping upto length of y
-        for i in range(len(y)):
+        hospitalRange = min(len(y),10)
+        for i in range(hospitalRange):
             # Append value corresponding to the
             # 'name' key at the ith index of y
             hospitalName = y[i]['name']
-            if ('Pet' not in hospitalName) and ('Vet' not in hospitalName) and ('Animal' not in hospitalName):
-                if ('Cat' not in hospitalName) and ('Dog' not in hospitalName):
-                    if ('Center' in hospitalName) or ('Hospital' in hospitalName):
-                        county_hospital.append((y[i]['name']))
-                        hospitalAddresses.append(y[i]['formatted_address'])
+            if ('Pet' not in hospitalName) and ('Vet' not in hospitalName) and ('Animal' not in hospitalName)\
+            and ('Cat' not in hospitalName) and ('Dog' not in hospitalName):
+                if ('Hospital' in hospitalName):
+                    county_hospital.append(y[i]['name'])
+                    hospitalAddresses.append(y[i]['formatted_address'])
 
     county_hospital = set(county_hospital)
     hospitalNumber = len(county_hospital)
-    return hospitalNumber, hospitalAddresses
-
-
-AlamedaStationNum, AlamedaStationAddresses = stationCalc('Alameda','CA')
-AlamedaHospitalNum, AlamedaHospAddresses = hospitalCalc('Alameda','CA')
+    county_hospital = list(county_hospital)
+    return hospitalNumber, hospitalAddresses, county_hospital
