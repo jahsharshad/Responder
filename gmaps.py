@@ -7,8 +7,11 @@ import pandas as pd
 global api_key
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
 
-global data
-data = pd.read_csv("CountyData.csv")
+global county_data
+county_data = pd.read_csv("CountyData.csv")
+
+global city_data
+city_data = pd.read_csv("Cities_Counties.csv")
 
 def generateMap(address):
     # "3749 Armour Court, Fremont, CA 94555 USA"
@@ -96,7 +99,7 @@ def getCounty(zip):
     return str(response["results"][0]["address_components"][2]["long_name"])
 
 def getCountyPop(county):
-    countyData = data[["COUNTYNAME", "POPULATION"]]
+    countyData = county_data[["COUNTYNAME", "POPULATION"]]
     countyData = countyData.to_dict()
     countyNames = countyData["COUNTYNAME"]
     popData = countyData["POPULATION"]
@@ -109,6 +112,20 @@ def getUrbanValue(population):
     if population > 50000:
         return 1
     return 0.5
+
+def flatten(t):
+    return [item for sublist in t for item in sublist]
+
+def getCitiesInCounty(county):
+    if "County" in county:
+        county = county.replace(" County", "")
+    elif "county" in county:
+        county = county.replace(" county", "")
+
+    counties = city_data[city_data["county_name"] == county]
+    cities = flatten(counties[["city"]].values.tolist())
+
+    return cities
 
 '''
 Reference"
