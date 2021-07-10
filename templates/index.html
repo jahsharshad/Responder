@@ -20,7 +20,10 @@
 						</div>
 						<div>{{ error_msg }}</div>
 						<div style="padding-top: 10px">
-							<p>You can also <a style="border-bottom: 2px dotted;" href="/">use your current location</a></p>
+							<p>You can also
+								<a style="border-bottom: 2px dotted;" onclick="getLocation()">use your current location</a>
+							</p>
+							<p id="demo"></p>
 						</div>
 					</form>
 				</ul>
@@ -88,7 +91,14 @@
 var x = document.getElementById("demo");
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    lat = navigator.geolocation.getCurrentPosition(showPosition);
+    window.location.href = "/services";
+    $.ajax({
+    	type: 'POST',
+    	url: "/services",
+    	contentType: 'application/json;charset=UTF-8',
+    	data: { 'name': lat, 'time': lat }
+	});
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -97,6 +107,7 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
+  return position.coords.latitude
 }
 </script>
 {% endblock %}
