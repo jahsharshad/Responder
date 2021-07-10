@@ -4,16 +4,16 @@ import json
 
 # enter your api key here
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
-county = getCounty(94555) # should come from user input 
+countyName = getCounty(94555) # should come from user input 
 # cities = ['Alameda', 'Oakland', 'Hayward', 'Pleasanton', 'Livermore', 'San Leandro', 'Berkeley', 'Dublin',
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
 #           'Piedmont', 'Sunol', 'Cherryland', 'Fairview', 'Ashland']
-cities = getCitiesInCounty(county)
-state = 'CA' # should come from user input
-county_station = []
+stateName = 'CA' # should come from user input
 
-def stationCalc():
+county_station = []
+def stationCalc(county, state):
     global county_station
+    cities = getCitiesInCounty(county)
     for city in cities:
         # url variable store url
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
@@ -48,8 +48,9 @@ def stationCalc():
 
 
 county_hospital = []
-def hospitalCalc():
+def hospitalCalc(county, state):
     global county_hospital
+    cities = getCitiesInCounty(county)
     for city in cities:
         # url variable store url
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
