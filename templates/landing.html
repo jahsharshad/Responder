@@ -8,10 +8,17 @@
 						<!-- One -->
 							<section id="one">
 								<div class="inner">
-									<header class="major">
-										<h2>Your emergency response time is {{ time }}.</h2>
-									</header>
-									<p>The closest emergency center is {{ destination }}.</p>
+									{% if not go_home %}
+										<header class="major">
+											<h2>Your emergency response time is {{ time }}.</h2>
+										</header>
+										<p>The closest emergency center is {{ destination }}.</p>
+									{% else %}
+										<header class="major">
+											<h2>Find the closest emergency center to you:</h2>
+										</header>
+										<a href="/" class="button">Go home</a>
+									{% endif %}
 								</div>
 							</section>
 

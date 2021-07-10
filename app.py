@@ -13,7 +13,6 @@ def index():
 
     if request.method == 'POST':
         address = request.form['address']
-        yourl = "https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJJ2jwac6_j4ARF0TwRREqtMA&destination=Washington%20Hospital%20Healthcare%20System%2C%202000%20Mowry%20Ave%2C%20Fremont%2C%20CA%2094538&key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk"
 
         try:
             geocode_result = google_maps.geocode(address)
@@ -21,9 +20,9 @@ def index():
                 return redirect(url_for('services', address=geocode_result[0]['formatted_address']))
         except:
             error_msg = "Please input an address. Example: 6392 Truckee Court, Newark, CA"
-            return render_template('index.html', error_msg=error_msg, src=yourl)
+            return render_template('index.html', error_msg=error_msg)
     else:
-        return render_template('index.html', src=yourl)
+        return render_template('index.html')
 
 
 @app.route('/about-us', methods=['POST', 'GET'])
@@ -33,9 +32,15 @@ def about_us():
 
 @app.route('/services', methods=['POST', 'GET'])
 def services():
-    address = request.args.get('address')
-    time, destination = time_estimate(address)
-    return render_template('landing.html', time=time, destination=destination)
+    time = 0
+    destination = "None"
+    try:
+        address = request.args.get('address')
+        time, destination = time_estimate(address)
+        go_home = False
+    except:
+        go_home = True
+    return render_template('landing.html', time=time, destination=destination, go_home=go_home)
 
 
 @app.route('/education', methods=['POST', 'GET'])
