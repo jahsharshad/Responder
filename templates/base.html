@@ -59,10 +59,10 @@ div.input {
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-		    <!-- Page Preloder -->
-		    <div id="preloder">
-			<div class="loader"></div>
-		    </div>
+<!-- Page Preloder -->
+<div id="preloder">
+	<div class="loader"></div>
+</div>
 				<!-- Header -->
 					<header id="header" class="alt">
 						<a href="/" class="logo">
@@ -143,6 +143,15 @@ div.input {
 					});
 
 				}
+				$(document).ready(function() {
+				//Preloader
+				preloaderFadeOutTime = 500;
+				function hidePreloader() {
+				var preloader = $('.spinner-wrapper');
+				preloader.fadeOut(preloaderFadeOutTime);
+				}
+				hidePreloader();
+				});
 			</script>
 
 		<!-- Scripts -->
