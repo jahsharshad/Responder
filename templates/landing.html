@@ -11,7 +11,7 @@
 
 	<!-- One -->
 		<section id="one">
-			<div class="inner"
+			<div class="inner">
 				{% if not go_home %}
 					<header class="major">
 						<h2>Your emergency response time is {{ time }}.</h2>
@@ -59,7 +59,7 @@
 								</div>
 								<div>{{ error_msg }}</div>
 								<div style="padding-top: 10px">
-									<p>You can also <a style="border-bottom: 2px dotted;" href="/">use your current location</a></p>
+									<p>You can also <a style="border-bottom: 2px dotted;" onclick="getLocation()">use your current location</a></p>
 								</div>
 							</form>
 						</header>
@@ -72,6 +72,7 @@
 					</div>
 				</div>
 			</section>
+			{% if not go_home %}
 			<section>
 				<a href="education" class="image">
 					<img src="static/images/pic09.jpg" alt="" data-position="top center" />
@@ -118,6 +119,7 @@
 				</ul>
 			</div>
 		</section>
+	{% endif %}
 
 </div>
 

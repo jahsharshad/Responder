@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from gmaps import generateMap
 import googlemaps
 import regex as re
+import urllib
 import pprint
 
 app = Flask(__name__)
@@ -38,13 +39,16 @@ def about_us():
 def services():
     time = 0
     destination = src = distance = "None"
+    go_home = False
     if request.method == 'POST':
-        print(request.json['data'])
-        # print('lol')
-    try:
+        latitude = request.get_json()[0]
+        longitude = request.get_json()[1]
+        address = google_maps.reverse_geocode((latitude, longitude))[0]['formatted_address']
+        address = {'address': urllib.parse.urlencode({'address': address})}
+        return jsonify(address)
+    else:
         address = request.args.get('address')
-        # time, destination, distance = time_estimate(address)
-        go_home = False
+    try:
         src, time, distance, destination = generateMap(address)
     except:
         go_home = True
