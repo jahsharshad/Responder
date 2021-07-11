@@ -14,6 +14,9 @@ county_data = pd.read_csv("CountyData.csv")
 global city_data
 city_data = pd.read_csv("Cities_Counties.csv")
 
+global area_data
+area_data = pd.read_csv("County_Area.csv")
+
 
 def generateMap(address):
     # "3749 Armour Court, Fremont, CA 94555 USA"
@@ -136,6 +139,23 @@ def getCitiesInCounty(county):
     cities = flatten(counties[["city"]].values.tolist())
 
     return cities
+
+def getAreaOfCounty(county, state):
+    countyName = county + ", " + state.upper()
+    countyData = area_data[["COUNTY", "AREA"]].to_dict()
+
+    county_names = countyData["COUNTY"]
+    county_area = countyData["AREA"]
+
+    county_names = {v: k for k, v in county_names.items()}
+    index = county_names[countyName]
+
+    return county_area[index]
+    
+
+    
+
+print(getAreaOfCounty("Alameda", "CA"))
 
 
 '''
