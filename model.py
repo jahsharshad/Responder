@@ -38,6 +38,3 @@ def predict(stations, area, urban):
 
 '''print(predict(429,789,0.5))
 print(type(predict(429,789,0.5)))'''
-
-
-train_model()

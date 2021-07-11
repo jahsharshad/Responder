@@ -91,8 +91,8 @@ def hospitalCalc(address):
     hospitalNumber = len(nearbyHospital)
     return hospitalNumber, hospitalAddresses, nearbyHospital
 
-'''
+
 AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
 AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
 print(AlamedaStationAddresses)
-print(AlamedaHospAddresses)'''
+print(AlamedaHospAddresses)
