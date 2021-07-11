@@ -6,7 +6,6 @@ from model import predict
 import googlemaps
 import regex as re
 import urllib
-import pprint
 
 app = Flask(__name__)
 google_maps = googlemaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
