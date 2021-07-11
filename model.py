@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 import joblib
-import matplotlib.pyplot as plt
 
 
 def train_model():
