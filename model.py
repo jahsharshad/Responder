@@ -1,7 +1,7 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
 import joblib
-
+'''
+from sklearn.ensemble import RandomForestRegressor
 
 def train_model():
     data = pd.read_csv("ResponseTimes.csv")
@@ -28,6 +28,7 @@ def train_model():
     if ans == "y":
         filename = 'model.sav'
         joblib.dump(clf, "./random_forest.joblib")
+'''
 
 
 def predict(stations, area, urban):
