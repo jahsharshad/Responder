@@ -151,11 +151,6 @@ def getAreaOfCounty(county, state):
     index = county_names[countyName]
 
     return county_area[index]
-    
-
-    
-
-print(getAreaOfCounty("Alameda", "CA"))
 
 
 '''
