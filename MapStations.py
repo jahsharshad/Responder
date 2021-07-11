@@ -53,6 +53,7 @@ def stationCalc(address):
 nearbyHospital = []
 hospitalAddresses = []
 
+
 def hospitalCalc(address):
     global nearbyHospital
     global hospitalAddresses
@@ -91,7 +92,7 @@ def hospitalCalc(address):
     return hospitalNumber, hospitalAddresses, nearbyHospital
 
 
-AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
-AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
-print(AlamedaStationAddresses)
-print(AlamedaHospAddresses)
+# AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
+# AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
+# print(AlamedaStationAddresses)
+# print(AlamedaHospAddresses)

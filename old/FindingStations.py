@@ -13,6 +13,7 @@ stateName = 'CA'  # should come from user input
 county_station = []
 stationAddresses = []
 
+
 def stationCalc(county, state):
     global county_station
     cities = getCitiesInCounty(county)
@@ -54,6 +55,7 @@ def stationCalc(county, state):
 county_hospital = []
 hospitalAddresses = []
 
+
 def hospitalCalc(county, state):
     global county_hospital
     global hospitalAddresses
@@ -94,6 +96,7 @@ def hospitalCalc(county, state):
     hospitalNumber = len(county_hospital)
     county_hospital = list(county_hospital)
     return hospitalNumber, hospitalAddresses, county_hospital
+
 
 '''AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('Alameda','CA')
 AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('Alameda','CA')
