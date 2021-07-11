@@ -15,6 +15,7 @@ stateName = 'CA'  # should come from user input
 nearbyStation = []
 stationAddresses = []
 
+
 def stationCalc(address):
     global nearbyStation
 
@@ -92,7 +93,8 @@ def hospitalCalc(address):
     return hospitalNumber, hospitalAddresses, nearbyHospital
 
 
-# AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
-# AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
-# print(AlamedaStationAddresses)
-# print(AlamedaHospAddresses)
+if __name__ == "__main__":
+    AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
+    AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
+    print(AlamedaStationAddresses)
+    print(AlamedaHospAddresses)
