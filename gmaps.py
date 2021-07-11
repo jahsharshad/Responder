@@ -6,7 +6,7 @@ import json
 import pandas as pd
 
 global api_key
-api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
+api_key = 'AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY'
 
 global county_data
 county_data = pd.read_csv("CountyData.csv")
@@ -74,7 +74,7 @@ def generateMap(address):
 
 
 def time_estimate(address="6392 Truckee Court, Newark, CA"):
-    gmaps = googlemaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
+    gmaps = googlemaps.Client(key='AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY')
 
     now = datetime.now()
     directions_result1 = gmaps.directions(address, "fire station near " + address,
@@ -160,7 +160,7 @@ def getAreaOfCounty(county, state):
 
 '''
 Reference"
-    <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk&origin=5001%20Deep%20Creek%2C%20Rd,%2C%20Fremont,%20CA%2C%2094555,&destination=5121%20Stagecoach%20Street%2C%20Fremont%2C%20CA%2094555%2C%20US&mode=driving&maptype=roadmap"></iframe>
+    <iframe width="600" height="450" style="border:0" loading="lazy" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY&origin=5001%20Deep%20Creek%2C%20Rd,%2C%20Fremont,%20CA%2C%2094555,&destination=5121%20Stagecoach%20Street%2C%20Fremont%2C%20CA%2094555%2C%20US&mode=driving&maptype=roadmap"></iframe>
 '''
 
 

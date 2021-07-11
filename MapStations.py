@@ -3,9 +3,9 @@ from googlemaps import Client as GoogleMaps
 import requests
 import json
 
-Geocoder = GoogleMaps(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
+Geocoder = GoogleMaps(key='AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY')
 # enter your api key here
-api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
+api_key = 'AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY'
 # countyName = getCounty(94555)  # should come from user input
 # cities = ['Alameda', 'Oakland', 'Hayward', 'Pleasanton', 'Livermore', 'San Leandro', 'Berkeley', 'Dublin',
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
@@ -23,7 +23,7 @@ def stationCalc(address):
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
 
     # The text string on which to search
-    query = 'Fire station'
+    query = 'Fire%20station'
 
     location = Geocoder.geocode(address)
     latitude = location[0]['geometry']['location']['lat']
@@ -37,6 +37,7 @@ def stationCalc(address):
     # json method of response object convert
     #  json format data into python format data
     x = r.json()
+    print(x)
 
     # now x contains list of nested dictionaries
     # we know dictionary contain key value pair
@@ -77,6 +78,7 @@ def hospitalCalc(address):
     # json method of response object convert
     #  json format data into python format data
     x = r.json()
+    print(x)
 
     # now x contains list of nested dictionaries
     # we know dictionary contain key value pair

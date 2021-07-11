@@ -8,7 +8,7 @@ import regex as re
 import urllib
 
 app = Flask(__name__)
-google_maps = googlemaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
+google_maps = googlemaps.Client(key='AIzaSyDdxzG0lDmmZPJGxeOybGNkEtIL10YMxQY')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -20,6 +20,7 @@ def index():
                                  "([a-zA-Z]+ )?([a-zA-Z]+ )?([a-zA-Z]+ )?[a-zA-Z]+, ([a-zA-Z]+ )?[a-zA-Z]+ [0-9]+, "
                                  "([a-zA-Z]+ )?[a-zA-Z]+")
             geocode_result = google_maps.geocode(address)
+            # print(geocode_result)
             geocode_input = geocode_result[0]['formatted_address']
             if re.search(pattern, geocode_input):
                 return redirect(url_for('services', address=geocode_input))
@@ -60,6 +61,8 @@ def services():
 
         _, station_addresses, station_names = stationCalc(address)
         _, hospital_addresses, hospital_names = hospitalCalc(address)
+        print("did calcs")
+        print(station_addresses, hospital_addresses)
 
         for station in station_addresses:
             station_components = google_maps.geocode(station)
@@ -90,7 +93,7 @@ def services():
             predicted_county_time = int(predict(prediction_stations, prediction_area, urban_value))
             print(predicted_county_time)
         except:
-            print("inner")
+            print("inner problem")
         src, time, distance, destination = generateMap(address)
         print("Generated map")
     except:
