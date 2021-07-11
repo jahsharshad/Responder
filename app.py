@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
-from gmaps import generateMap, generateCountyMap
+from gmaps import generateMap, getCounty, getCountyPop, getUrbanValue, getAreaOfCounty
 from MapStations import stationCalc, hospitalCalc
+import FindingStations as fs
+from model import predict
 import googlemaps
 import regex as re
 import urllib
@@ -38,8 +40,8 @@ def about_us():
 
 @app.route('/services', methods=['POST', 'GET'])
 def services():
-    time = 0
-    destination = src = distance = county_src = address = "None"
+    time = predicted_county_time = 0
+    destination = src = distance = county_src = address = addr_county = "None"
     locations = {}
     map_center = [40.3453453, -79.8327498]
     go_home = False
@@ -69,7 +71,28 @@ def services():
             hospital_components = google_maps.geocode(hospital)
             locations[hospital] = [hospital_components[0]['geometry']['location']['lat'],
                                    hospital_components[0]['geometry']['location']['lng']]
-        print(hospital_addresses, station_addresses)
+        # print(hospital_addresses, station_addresses)
+
+        addr_county = address_components[0]['address_components'][3]['short_name']
+        addr_state = address_components[0]['address_components'][4]['short_name']
+        # print(addr_county)
+        # print(addr_state)
+
+        hospital_num, _, ch = fs.hospitalCalc(addr_county, addr_state)
+        station_num, _, cs = fs.stationCalc(addr_county, addr_state)
+        prediction_stations = hospital_num + station_num
+
+        prediction_area = getAreaOfCounty(addr_county, addr_state)
+        # print("pred area: " + str(prediction_area))
+
+        zip_code = address_components[0]['address_components'][6]['long_name']
+        # print("zcode: " + zip_code)
+        prediction_county = getCounty(zip_code)
+        # print(prediction_county)
+        prediction_pop = getCountyPop(prediction_county)
+        urban_value = getUrbanValue(prediction_pop)
+        # # stations, area, urban
+        predicted_county_time = int(predict(prediction_stations, prediction_area, urban_value))
 
         src, time, distance, destination = generateMap(address)
         print("Generated map")
@@ -92,7 +115,10 @@ def services():
                            map_center=map_center,
                            closest_hospital=hospital_addresses[0],
                            closest_station=station_addresses[0],
-                           markers=markers)
+                           markers=markers,
+                           addr_county=addr_county,
+                           predicted_county_time=predicted_county_time
+                           )
 
 
 @app.route('/education', methods=['POST', 'GET'])

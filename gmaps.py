@@ -140,7 +140,12 @@ def getCitiesInCounty(county):
 
     return cities
 
+
 def getAreaOfCounty(county, state):
+    if "County" in county:
+        county = county.replace(" County", "")
+    elif "county" in county:
+        county = county.replace(" county", "")
     countyName = county + ", " + state.upper()
     countyData = area_data[["COUNTY", "AREA"]].to_dict()
 

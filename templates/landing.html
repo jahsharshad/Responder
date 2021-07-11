@@ -88,8 +88,10 @@
 							<h3>County Emergency Services Information</h3>
 						</header>
 						<p>Your current location: {{ address }}</p>
-						<p>Closest hospital to your current location: {{ closest_hospital }}</p>
-						<p>Closest fire department to your current location: {{ closest_station }} </p>
+<!--						<p>Closest hospital to your current location: {{ closest_hospital }}</p>-->
+<!--						<p>Closest fire department to your current location: {{ closest_station }} </p>-->
+						<h5>Machine learning generated results</h5>
+						<p>{{ addr_county }} average response time: {{ predicted_county_time }} minutes</p>
 						<ul class="actions">
 							<li><a href="education" class="button">What to do right now</a></li>
 						</ul>
@@ -118,7 +120,7 @@
 					map: map,
 					icon:  markerlocations[i][3]
 			});
-			var address = '<div><p><b>markerlocations[i][2]</b></p></div>';
+			var address = '<div><p><b>Marker Locations</b></p></div>';
 			var infowindow = new google.maps.InfoWindow({
 			  content: address
 			});
