@@ -43,7 +43,7 @@ def stationCalc(address):
     y = x['results']
 
     # keep looping upto length of y
-    for i in range(min(len(y), 3)):
+    for i in range(min(len(y), 5)):
         nearbyStation.append((y[i]['name']))
         stationAddresses.append(y[i]['formatted_address'])
     stationNumber = len(stationAddresses)
@@ -83,7 +83,7 @@ def hospitalCalc(address):
     y = x['results']
 
     # keep looping upto length of y
-    for i in range(min(len(y),2)):
+    for i in range(min(len(y),5)):
         hospitalName = y[i]['name']
         nearbyHospital.append(hospitalName)
         hospitalAddresses.append(y[i]['formatted_address'])
