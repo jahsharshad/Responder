@@ -93,8 +93,11 @@
 <!--						<h5>This is dummy text</h5>-->
 <!--						<p>If it is an urgent emergency, make sure to call 911</p>-->
 						<h5>Machine learning generated results</h5>
-<!--						<p>{{ addr_county }} average response time: 10 minutes</p>-->
+						{% if predicted_county_time == 0 %}
+						<p>{{ addr_county }} average response time is unavailable.</p>
+						{% else %}
 						<p>{{ addr_county }} average response time: {{ predicted_county_time }} minutes</p>
+						{% endif %}
 						<ul class="actions">
 							<li><a href="education" class="button">What to do right now</a></li>
 						</ul>
