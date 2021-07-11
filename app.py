@@ -71,28 +71,21 @@ def services():
             hospital_components = google_maps.geocode(hospital)
             locations[hospital] = [hospital_components[0]['geometry']['location']['lat'],
                                    hospital_components[0]['geometry']['location']['lng']]
-        # print(hospital_addresses, station_addresses)
 
         addr_county = address_components[0]['address_components'][3]['short_name']
         addr_state = address_components[0]['address_components'][4]['short_name']
-        # print(addr_county)
-        # print(addr_state)
-
-        hospital_num, _, ch = fs.hospitalCalc(addr_county, addr_state)
-        station_num, _, cs = fs.stationCalc(addr_county, addr_state)
-        prediction_stations = hospital_num + station_num
-
-        prediction_area = getAreaOfCounty(addr_county, addr_state)
-        # print("pred area: " + str(prediction_area))
-
-        zip_code = address_components[0]['address_components'][6]['long_name']
-        # print("zcode: " + zip_code)
-        prediction_county = getCounty(zip_code)
-        # print(prediction_county)
-        prediction_pop = getCountyPop(prediction_county)
-        urban_value = getUrbanValue(prediction_pop)
-        # # stations, area, urban
-        predicted_county_time = int(predict(prediction_stations, prediction_area, urban_value))
+        #
+        # hospital_num, _, ch = fs.hospitalCalc(addr_county, addr_state)
+        # station_num, _, cs = fs.stationCalc(addr_county, addr_state)
+        # prediction_stations = hospital_num + station_num
+        #
+        # prediction_area = getAreaOfCounty(addr_county, addr_state)
+        #
+        # zip_code = address_components[0]['address_components'][6]['long_name']
+        # prediction_county = getCounty(zip_code)
+        # prediction_pop = getCountyPop(prediction_county)
+        # urban_value = getUrbanValue(prediction_pop)
+        # predicted_county_time = int(predict(prediction_stations, prediction_area, urban_value))
 
         src, time, distance, destination = generateMap(address)
         print("Generated map")
