@@ -1,6 +1,4 @@
 CountyName,ResponseTime,EmergencyStations,Population,Area,Urban
-Nashville,5.4,30,678448,526,1
-FortWorth,5.5,29,874401,356,1
 Houston,5.5,48,2310000,669,1
 Boston,6.4,29,684379,90,1
 SanAntonio,6.5,65,1508000,505,1
