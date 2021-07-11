@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 import joblib
+import matplotlib.pyplot as plt
 
 def train_model():
     data = pd.read_csv("ResponseTimes.csv")
@@ -15,7 +16,6 @@ def train_model():
     clf.fit(X, Y)
 
     predicted = clf.predict(X)
-
 
     avg=0
     for i in range(len(predicted)-1):
@@ -38,3 +38,6 @@ def predict(stations, area, urban):
 
 '''print(predict(429,789,0.5))
 print(type(predict(429,789,0.5)))'''
+
+
+train_model()
