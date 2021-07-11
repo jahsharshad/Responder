@@ -53,6 +53,7 @@ def stationCalc(address):
 nearbyHospital = []
 hospitalAddresses = []
 
+
 def hospitalCalc(address):
     global nearbyHospital
     global hospitalAddresses

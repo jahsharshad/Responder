@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from gmaps import generateMap, generateCountyMap
-from FindingStations import stationCalc, hospitalCalc
+from MapStations import stationCalc, hospitalCalc
 import googlemaps
 import regex as re
 import urllib
@@ -39,9 +39,11 @@ def about_us():
 @app.route('/services', methods=['POST', 'GET'])
 def services():
     time = 0
-    destination = src = distance = county_src = "None"
-    locations = {'hospital': [40.3453453, -79.8327498]}
+    destination = src = distance = county_src = address = "None"
+    locations = {}
+    map_center = [40.3453453, -79.8327498]
     go_home = False
+    hospital_addresses = station_addresses = ['']
     if request.method == 'POST':
         latitude = request.get_json()[0]
         longitude = request.get_json()[1]
@@ -51,18 +53,24 @@ def services():
     try:
         address = request.args.get('address')
         address_components = google_maps.geocode(address)
-        # print("Got address")
-        #
-        # county = address_components[0]['address_components'][3]['long_name']
-        # state = address_components[0]['address_components'][4]['short_name']
-        # print("Got county and state")
-        #
-        # # _, station_addresses = stationCalc(county, state)
-        # # _, hospital_addresses = hospitalCalc(county, state)
-        # # print("Got station and hospital addresses")
-        # #
-        # # county_src, locations = generateCountyMap(address, station_addresses, hospital_addresses)
-        # # print("Generated county map")
+
+        map_center = [address_components[0]['geometry']['location']['lat'],
+                      address_components[0]['geometry']['location']['lng']]
+
+        _, station_addresses, station_names = stationCalc(address)
+        _, hospital_addresses, hospital_names = hospitalCalc(address)
+
+        for station in station_addresses:
+            station_components = google_maps.geocode(station)
+            locations[station] = [station_components[0]['geometry']['location']['lat'],
+                                  station_components[0]['geometry']['location']['lng']]
+
+        for hospital in hospital_addresses:
+            hospital_components = google_maps.geocode(hospital)
+            locations[hospital] = [hospital_components[0]['geometry']['location']['lat'],
+                                   hospital_components[0]['geometry']['location']['lng']]
+        print(hospital_addresses, station_addresses)
+
         src, time, distance, destination = generateMap(address)
         print("Generated map")
     except:
@@ -75,11 +83,15 @@ def services():
         markers.append(loc_lat_long)
     return render_template('landing.html',
                            time=time,
+                           address=address,
                            destination=destination,
                            distance=distance,
                            go_home=go_home,
                            src=src,
                            county_src=county_src,
+                           map_center=map_center,
+                           closest_hospital=hospital_addresses[0],
+                           closest_station=station_addresses[0],
                            markers=markers)
 
 
