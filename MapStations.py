@@ -6,11 +6,11 @@ import json
 Geocoder = GoogleMaps(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
 # enter your api key here
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
-countyName = getCounty(94555)  # should come from user input
+# countyName = getCounty(94555)  # should come from user input
 # cities = ['Alameda', 'Oakland', 'Hayward', 'Pleasanton', 'Livermore', 'San Leandro', 'Berkeley', 'Dublin',
 #           'Castro Valley', 'Union City', 'Newark', 'Emeryville', 'Albany', 'San Lorenzo', 'Piedmont', 'Sunol',
 #           'Piedmont', 'Sunol', 'Cherryland', 'Fairview', 'Ashland']
-stateName = 'CA'  # should come from user input
+# stateName = 'CA'  # should come from user input
 
 nearbyStation = []
 stationAddresses = []
