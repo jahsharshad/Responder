@@ -79,7 +79,7 @@ def services():
     markers = []
     for location in locations:
         loc_lat_long = [locations[location][0], locations[location][1], location,
-                        '/static/images/favicon_red_marker.png']
+                        '/static/images/marker.png']
         markers.append(loc_lat_long)
     return render_template('landing.html',
                            time=time,
