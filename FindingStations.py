@@ -136,7 +136,6 @@ def hospitalCalc(county, state):
         h = threading.Thread(target=stationCities, args=(city, county, state))
         h.start()
         threads.append(h)
-        print(city)
         # # url variable store url
         # url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
         #
@@ -181,3 +180,9 @@ def hospitalCalc(county, state):
 #
 # print(AlamedaStationNames)
 # print(AlamedaHospNames)
+
+AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('Essex','NJ')
+AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('Essex','NJ')
+
+print(AlamedaStationNames)
+print(AlamedaHospNames)
