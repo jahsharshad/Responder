@@ -3,7 +3,7 @@ from googlemaps import Client as GoogleMaps
 import requests
 import json
 
-Geocoder = GoogleMaps.Client(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
+Geocoder = GoogleMaps(key='AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk')
 # enter your api key here
 api_key = 'AIzaSyBx2lGCeaLjMTNblROj3I4iNL8DWi45jvk'
 countyName = getCounty(94555)  # should come from user input
@@ -30,7 +30,7 @@ def stationCalc(address):
 
     # get method of requests module
     # return response object
-    r = requests.get(url + 'query=' + query + '&location=' + latitude + ', ' + longitude +
+    r = requests.get(url + 'query=' + query + '&location=' + str(latitude) + ', ' + str(longitude) +
                      '&type=fire_station' + '&rankby=distance' + '&key=' + api_key)
 
     # json method of response object convert
@@ -69,7 +69,7 @@ def hospitalCalc(address):
 
     # get method of requests module
     # return response object
-    r = requests.get(url + 'query=' + query + '&location=' + latitude + ', ' + longitude +
+    r = requests.get(url + 'query=' + query + '&location=' + str(latitude) + ', ' + str(longitude) +
                      '&type=hospital' + '&rankby=distance' + '&key=' + api_key)
 
     # json method of response object convert
@@ -90,7 +90,8 @@ def hospitalCalc(address):
     hospitalNumber = len(nearbyHospital)
     return hospitalNumber, hospitalAddresses, nearbyHospital
 
-AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('5121 Stagecoach Street')
-AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('5121 Stagecoach Street')
-print(AlamedaStationNames)
-print(AlamedaHospNames)
+'''
+AlamedaStationNum, AlamedaStationAddresses, AlamedaStationNames = stationCalc('3749 Armour Ct, Fremont, CA')
+AlamedaHospitalNum, AlamedaHospAddresses, AlamedaHospNames = hospitalCalc('3749 Armour Ct, Fremont, CA')
+print(AlamedaStationAddresses)
+print(AlamedaHospAddresses)'''
