@@ -1,5 +1,5 @@
 # Responder
-During this time where COVID-19 is coming to a close, and seniors are looking to move to new homes in new areas, many are unsure whether ambulances will reach there in time in the case of an emergency. There were not many solutions to this problem, so we took this matter into our own hands.
+During this time when COVID-19 is coming to a close, emergency services are extremely essential, especially for our senior citizens. Because of the importance of such services and the increase in people moving to new homes, we created Responder, the first emergency service response time visualizer and predictor!
 
 Welcome to Responder, the first emergency service response time visualizer and predictor! Specifically for senior citizens, our web application can predict emergency service response times for their specific address and their county in general as well as showing directions to the closest emergency service facility in their city and county!
 
